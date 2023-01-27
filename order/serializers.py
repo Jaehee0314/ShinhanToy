@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from .models import Comment
-from .models import Order
+from .models import Comment, Order
+
 
 
 class OrderSerializer(serializers.ModelSerializer):
@@ -25,7 +25,8 @@ class CommentSerializer(serializers.ModelSerializer):
 
 class CommentCreateSerializer(serializers.ModelSerializer):
     member = serializers.HiddenField(default = serializers.CurrentUserDefault(),
-    required = False)
+    required = False, 
+    )
 
     class Meta:
         model = Comment
